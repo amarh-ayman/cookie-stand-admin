@@ -1,5 +1,4 @@
 import 'tailwindcss/tailwind.css'
-import { useState } from 'react'
 
 const Form = ({ onTakeResult }) => {
   const AddResultHandler = event => {
