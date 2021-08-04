@@ -1,7 +1,8 @@
-function Footer() {
+function Footer({ location }) {
+  // console.log(location.length)
   return (
     <div className="bg-green-500 p-3">
-      <p>&copy; 2021</p>
+      <p>{location.length} Locations World Wide</p>
     </div>
   )
 }

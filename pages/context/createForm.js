@@ -1,5 +1,4 @@
 import 'tailwindcss/tailwind.css'
-import { useState } from 'react'
 
 const Form = ({ onTakeResult }) => {
   const AddResultHandler = event => {
@@ -11,8 +10,22 @@ const Form = ({ onTakeResult }) => {
       average: event.target.avg.value,
     }
 
+    let max_cus = form_R.max
+    let min_cus = form_R.minimun
+    let numberOfCustomersHourlyLocationArray = [[form_R.location]]
+    let numberOfCustomersHourlyArray = []
+    for (let i = 0; i < 14; i++) {
+      numberOfCustomersHourlyArray.push(
+        Math.floor(Math.random() * (max_cus - min_cus) + min_cus)
+      )
+    }
+    numberOfCustomersHourlyLocationArray.push(numberOfCustomersHourlyArray)
+    onTakeResult(preState => [
+      ...preState,
+      numberOfCustomersHourlyLocationArray,
+    ])
+
     event.target.reset()
-    onTakeResult(prevR => [...prevR, form_R])
   }
   return (
     <form onSubmit={AddResultHandler}>
