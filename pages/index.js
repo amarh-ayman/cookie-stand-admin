@@ -1,4 +1,4 @@
-import Body from './components/body'
+import Body from './components/CookieStandAdmin'
 import Headd from './components/head'
 function Home() {
   return (
