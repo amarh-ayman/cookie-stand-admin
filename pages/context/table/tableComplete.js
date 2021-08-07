@@ -1,15 +1,15 @@
-import TableHeader from './header'
-import TableBody from './content'
-import TableFooter from './footer'
+import TableHeader from './tableHeader'
+import TableBody from './tableBody'
+import TableFooter from './tableFooter'
 
-const Table = ({ onAddResult }) => {
+const TableComplete = ({ token, reportList }) => {
   return (
     <table className="w=11/12">
       <TableHeader />
-      <TableBody onAddResult={onAddResult} />
-      <TableFooter onAddResult={onAddResult} />
+      <TableBody token={token} reportList={reportList} />
+      <TableFooter reportList={reportList} />
     </table>
   )
 }
 
-export default Table
+export default TableComplete
