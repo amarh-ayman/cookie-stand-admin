@@ -1,16 +1,16 @@
-import Table from './table/tableComplete'
-const Result = ({ onAddResult }) => {
+import TableComplete from './table/tableComplete'
+const ReportTable = ({ token, reportList }) => {
   return (
     <div className="pt-6 pb-6 flex flex-col justify-center items-center justify-items-center">
       <ul>
-        {onAddResult.length == 0 ? (
+        {reportList.length == 0 ? (
           <h2>No Cookie Stands Available</h2>
         ) : (
-          <Table onAddResult={onAddResult}></Table>
+          <TableComplete token={token} reportList={reportList}></TableComplete>
         )}
       </ul>
     </div>
   )
 }
 
-export default Result
+export default ReportTable

@@ -1,30 +1,43 @@
 import 'tailwindcss/tailwind.css'
+import axios from 'axios'
 
-const Form = ({ onTakeResult }) => {
+const Form = ({ token }) => {
   const AddResultHandler = event => {
     event.preventDefault()
     const form_R = {
       location: event.target.location.value,
       minimun: event.target.min.value,
-      max: event.target.max.value,
-      average: event.target.avg.value,
+      maximum: event.target.max.value,
+      average_cookies_per_sale: event.target.avg.value,
     }
 
-    let max_cus = form_R.max
+    let max_cus = form_R.maximum
     let min_cus = form_R.minimun
-    let numberOfCustomersHourlyLocationArray = [[form_R.location]]
     let numberOfCustomersHourlyArray = []
     for (let i = 0; i < 14; i++) {
       numberOfCustomersHourlyArray.push(
         Math.floor(Math.random() * (max_cus - min_cus) + min_cus)
       )
     }
-    numberOfCustomersHourlyLocationArray.push(numberOfCustomersHourlyArray)
-    onTakeResult(preState => [
-      ...preState,
-      numberOfCustomersHourlyLocationArray,
-    ])
 
+    let data = {
+      location: form_R.location,
+      description: '',
+      hourly_sales: numberOfCustomersHourlyArray,
+      minimum_customers_per_hour: 1,
+      maximum_customers_per_hour: form_R.minimun,
+      average_cookies_per_sale: form_R.average,
+      owner: 1,
+    }
+
+    const config = { headers: { Authorization: 'Bearer ' + token } }
+    axios.post(
+      'https://cookie-stand-api.herokuapp.com/api/v1/cookie-stands/',
+      data,
+      config
+    )
+
+    // *************************
     event.target.reset()
   }
   return (
