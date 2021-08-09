@@ -27,21 +27,15 @@ function CookieStandAdmin({ token, setToken }) {
       <Headd></Headd>
       <div className="h-screen bg-black flex justify-center">
         <div className="w-3/4 self-center">
-          {reportList.length == 0 ? (
-            <h2>No Cookie Stands Available</h2>
-          ) : (
-            <>
-              <CookieStandHeader
-                token={token}
-                setToken={setToken}
-              ></CookieStandHeader>
-              <CookieStandMain
-                token={token}
-                reportList={reportList}
-              ></CookieStandMain>
-              <CookieStandFooter reportList={reportList}></CookieStandFooter>{' '}
-            </>
-          )}
+          <CookieStandHeader
+            token={token}
+            setToken={setToken}
+          ></CookieStandHeader>
+          <CookieStandMain
+            token={token}
+            reportList={reportList}
+          ></CookieStandMain>
+          <CookieStandFooter reportList={reportList}></CookieStandFooter>
         </div>
       </div>
     </>
