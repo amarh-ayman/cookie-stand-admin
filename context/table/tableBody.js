@@ -26,7 +26,7 @@ const TableBody = ({ token, reportList }) => {
         let x = index % 2 == 0 ? 'bg-green-400 p-2' : 'bg-green-300 p-2'
 
         return (
-          <tr key={item.id} className={x}>
+          <tr key={index + 1} className={x}>
             <td className="border border-green-600 p-2">
               {item.location}&emsp;
               <TrashIcon
@@ -34,7 +34,7 @@ const TableBody = ({ token, reportList }) => {
                 color="red"
                 cursor="pointer"
                 onClick={trashBtn}
-              />{' '}
+              />
             </td>
             {item.hourly_sales.map(my_number => {
               return (

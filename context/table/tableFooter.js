@@ -16,7 +16,7 @@ const TableFooter = ({ reportList }) => {
   }
   return (
     <tfoot>
-      <tr className="bg-green-500 p-2">
+      <tr key={reportList.length + 1} className="bg-green-500 p-2">
         <td className="border border-green-600 p-2">Totals</td>
         {calculateTotalColumn(reportList)[0].map(number => {
           return <td className="border border-green-600 p-2">{number}</td>

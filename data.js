@@ -1,4 +1,4 @@
-const hoursOpen = [
+let hoursOpen = [
   'Locations',
   '6am',
   '7am',

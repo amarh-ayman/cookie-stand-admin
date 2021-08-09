@@ -1,5 +1,5 @@
-import CookieStandAdmin from './components/CookieStandAdmin'
-import LoginForm from './components/loginPage'
+import CookieStandAdmin from '../components/CookieStandAdmin'
+import LoginForm from '../components/loginPage'
 import { useState } from 'react'
 import axios from 'axios'
 
